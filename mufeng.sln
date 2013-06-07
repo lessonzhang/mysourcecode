@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFramework", "MyFramework\MyFramework.csproj", "{9FC24B47-AD7E-4AE7-8690-3DC1DB8517AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{E68EBCA3-8353-4F31-8974-2BAFA17CC495}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newtonsoft.Json.Net40", "D:\json\Newtonsoft.Json\Newtonsoft.Json.Net40.csproj", "{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyHttpHander", "MyHttpHander\MyHttpHander.csproj", "{C7FB9DCD-06FC-4AE6-BD80-324B5080819A}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "mufeng", "D:\mufeng\", "{6B91958C-3AFE-459F-961A-F8FC44AF263C}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{e68ebca3-8353-4f31-8974-2bafa17cc495}|Entities.dll;{9FC24B47-AD7E-4AE7-8690-3DC1DB8517AB}|MyFramework.dll;{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}|Newtonsoft.Json.dll;{c7fb9dcd-06fc-4ae6-bd80-324b5080819a}|MyHttpHander.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_34622"
+		Debug.AspNetCompiler.PhysicalPath = "D:\mufeng\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_34622\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_34622"
+		Release.AspNetCompiler.PhysicalPath = "D:\mufeng\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_34622\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "12649"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FC24B47-AD7E-4AE7-8690-3DC1DB8517AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FC24B47-AD7E-4AE7-8690-3DC1DB8517AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FC24B47-AD7E-4AE7-8690-3DC1DB8517AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FC24B47-AD7E-4AE7-8690-3DC1DB8517AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E68EBCA3-8353-4F31-8974-2BAFA17CC495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E68EBCA3-8353-4F31-8974-2BAFA17CC495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E68EBCA3-8353-4F31-8974-2BAFA17CC495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E68EBCA3-8353-4F31-8974-2BAFA17CC495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7FB9DCD-06FC-4AE6-BD80-324B5080819A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7FB9DCD-06FC-4AE6-BD80-324B5080819A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7FB9DCD-06FC-4AE6-BD80-324B5080819A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7FB9DCD-06FC-4AE6-BD80-324B5080819A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B91958C-3AFE-459F-961A-F8FC44AF263C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B91958C-3AFE-459F-961A-F8FC44AF263C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B91958C-3AFE-459F-961A-F8FC44AF263C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B91958C-3AFE-459F-961A-F8FC44AF263C}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

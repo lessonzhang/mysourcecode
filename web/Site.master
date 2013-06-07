@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>Mu Feng 100</title>
+    <link href="Content/Site.css" rel="stylesheet" /> 
+</head>
+<body>
+    <form runat="server">
+    <header>
+        <div id="container">
+           <div  class="floatingbar">
+               <div class="leftheaddiv"></div>
+               <div  class="rightheaddiv">
+		         <ul class="navigation">
+                      <div runat="server" id="unlogedin">
+                            <li><a id="loginLink"  href="<%=this.BasePath%>Account/Login.aspx">登录</a></li>
+                            <li><a id="registerLink"  href="<%=this.BasePath%>Account/Register.aspx">注册</a></li>
+                     </div>
+                     <div runat="server" id="logedin">
+                            <li><a id="logoutLink"  href="<%=this.BasePath%>Account/Login.aspx">登出</a></li>
+                            <li><a id="loginAccount"  href="<%=this.BasePath%>Account/Manage.aspx">账号管理
+                            </a></li>
+                           <li><a id="friend"  href="<%=this.BasePath%>Account/MyFriend.aspx">好友消息
+                            </a></li>
+                     </div>  
+                     <li><a href="<%=this.BasePath%>About.aspx">关于我们</a></li>
+                     <li><a href="<%=this.BasePath%>Contact.aspx">联系我们</a></li>
+                     <li><a href="<%=this.BasePath%>Default.aspx">首页</a></li>
+                     <label id="welcomelabel" runat="server" class="welcome"></label>
+		         </ul>
+                   </div>
+           </div>
+        </div>
+    </header>
+    <div id="body">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+    </div>
+
+    </form>
+</body>
+</html>
