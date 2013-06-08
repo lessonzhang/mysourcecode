@@ -444,7 +444,7 @@
             this.ctx = this.canvas.getContext("2d");
             this.bufferCtx = this.buffer.getContext("2d");
             $(this.canvas).css("background-color", this.backgroundColor);
-            this.shapes = this.opts.shapes || [];
+            this.shapes = this.opts.loadshapes || [];
             this.undoStack = [];
             this.redoStack = [];
             this.isDragging = false;
@@ -547,7 +547,13 @@
             return this.transformed(function () {
                 var _this = this;
                 return _.each(shapes, function (s) {
-                    return s.draw();
+                    
+                    if (s["t"] == "L") {this.shape = new LC.Line(s["x1"], s["y1"], s["sw"], s["c"], s["x2"], s["y2"]); return this.shape.draw(); }
+                    if (s["t"] == "LP") { this.shape = new LC.LinePathShape(s["sw"], s["c"], s["ps"]); return this.shape.draw(); }
+                    if (s["t"] == "C") {this.shape = new LC.Circle(s["x"], s["y"], s["sw"], s["c"], s["w"], s["h"]); return this.shape.draw(); }
+                    if (s["t"] == "R") {this.shape = new LC.Rectangle(s["x"], s["y"], s["sw"], s["c"], s["w"], s["h"]); return this.shape.draw(); }
+                    if (s["t"] = "EP") {this.shape = new LC.EraseLinePathShape(s["sw"], s["c"], s["ps"]); return this.shape.draw(); }
+                    //return s.draw();
                 });
             });
         };
@@ -668,7 +674,7 @@
             backgroundColor: "rgb(256, 256, 256)",
             imageURLPrefix: "../Images",
             keyboardShortcuts: true,
-            shapes: [],
+            loadshapes: [],
             canvasid: "myCanvas",
             sizeToContainer: true,
             toolClasses: [LC.Pencil, LC.Eraser, LC.LineTool, LC.RectangleTool, LC.CircleTool, LC.Pan],
@@ -1334,8 +1340,9 @@
             return "<img src='" + this.opts.imageURLPrefix + "/eraser.png'>";
         };
         Eraser.prototype.begin = function (x, y, lc) {
-            this.currentShape = new LC.EraseLinePathShape(this.strokeWidth, lc.backgroundColor,[x,y]);
-            return this.currentShape.addPoint(this.makePoint(x, y));
+            var p = [];
+            p.push(this.makePoint(x, y));
+            return this.currentShape = new LC.EraseLinePathShape(this.strokeWidth, lc.backgroundColor, p);
         };
         Eraser.prototype["continue"] = function (x, y, lc) {
             this.currentShape.addPoint(this.makePoint(x, y));
@@ -1371,7 +1378,9 @@
             };
         };
         Pan.prototype["continue"] = function (x, y, lc) {
+            log.debug("start");
             lc.pan(this.start.x - x, this.start.y - y);
+            log.debug("end");
             return lc.repaint();
         };
         return Pan;
