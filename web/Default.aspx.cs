@@ -15,7 +15,7 @@ using MyFramework.Utility.Serialization;
 using MyFramework;
 using System.Net;
 using System.Data.Services.Client;
-using System.IO; 
+using System.IO;
 
 public partial class _Default : BasePage
 {

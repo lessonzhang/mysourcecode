@@ -45,7 +45,8 @@
                   $("g.node").mouseover(
                       function () { $(this).find("path").attr("fill", "#4eb3d3"); }).mouseout(
                       function () { $(this).find("path").attr("fill", $(this).find("path").attr("stroke")); }).bind('click dbclick',                              function () {
-                      $('#myknowledge').showLoading();
+                          $('#myknowledge').showLoading();
+                      InitButton($(this).find("path").attr("id"));
                       GetSearchResult($(this.childNodes).filter("text")[0].textContent.trim(), $(this).find("path").attr("id"), course);
                       GetVideo($(this).find("path").attr("id"));
                   })
@@ -108,6 +109,75 @@
                       })
                   })
               }
+              InitButton = function (knowledgeid)
+              {
+                  $("#knowledgeButton").html("");
+                  var htmlobj = "<div class=\"righttopbar\"> <ul class=\"navigationleft\"><li><a id=\"myExercise\" url=\"" + knowledgeid + "\" href=\"#\">课后习题</a></li><li><a id=\"mywrongcollection\" url=\"" + knowledgeid + "\" href=\"#\">我的错题</a></li><li><a id=\"myNote\" url=\"" + knowledgeid + "\" href=\"#\">我的笔记</a></li><li><a id=\"addNote\" url=\"" + knowledgeid + "\" href=\"#\">添加笔记</a></li><li><a id=\"myFavorite\" url=\"" + knowledgeid + "\" href=\"#\">我的收藏</a></li></ul></div>";
+                  $('#knowledgeButton').append(htmlobj);
+
+                  $('#mywrongcollection').bind('click dbclick', function () {
+                      if (<%=this.CurrentUser.UserID%>+"" == "-1") {
+                          alert("请您先登录");
+                      } else {
+                          var knowledgeid = $(this).attr("url") + "";
+                          var w = window.open();
+                          setTimeout(function () {
+                              w.location = "myWrongCollection.aspx?knowledgeid=" + knowledgeid;
+                          }, 1000);
+                          return false;
+                      }
+                  });
+
+                  $('#myFavorite').bind('click dbclick', function () {
+                      if (<%=this.CurrentUser.UserID%>+"" == "-1") {
+                          alert("请您先登录");
+                      } else {
+                          var knowledgeid = $(this).attr("url") + "";
+                          var w = window.open();
+                          setTimeout(function () {
+                              w.location = "myWrongCollection.aspx?knowledgeid=" + knowledgeid;
+                          }, 1000);
+                          return false;
+                      }
+                  });
+                  $('#myNote').bind('click dbclick', function () {
+                      if (<%=this.CurrentUser.UserID%>+"" == "-1") {
+                          alert("请您先登录");
+                      } else {
+                          var knowledgeid = $(this).attr("url") + "";
+                          var w = window.open();
+                          setTimeout(function () {
+                              w.location = "Note/myNote.aspx?knowledgeid=" + knowledgeid;
+                          }, 1000);
+                          return false;
+                      }
+                  });
+                  $('#addNote').bind('click dbclick', function () {
+                      if (<%=this.CurrentUser.UserID%>+"" == "-1") {
+                          alert("请您先登录");
+                      } else {
+                          var knowledgeid = $(this).attr("url") + "";
+                          var w = window.open();
+                          setTimeout(function () {
+                              w.location = "Note/addNote.aspx?knowledgeid=" + knowledgeid;
+                          }, 1000);
+                          return false;
+                      }
+                  });
+                  $('#myExercise').bind('click dbclick', function () {
+                      if (<%=this.CurrentUser.UserID%>+"" == "-1") {
+                          alert("请您先登录");
+                      } else {
+                          var knowledgeid = $(this).attr("url") + "";
+                          var w = window.open();
+                          setTimeout(function () {
+                              w.location = "myExercise.aspx?knowledgeid=" + knowledgeid;
+                          }, 1000);
+                          return false;
+                      }
+                  });
+              }
+
               GetSearchResult = function (keyword, knowledgeid, course) {
                   $("#knowledgeSR").html("");
                   $.ajax({
@@ -177,6 +247,8 @@
                         myShow($(this).attr('name'));
                     }
                   });
+
+                  
               })
           })(this.jQuery)
       </script>
@@ -190,14 +262,7 @@
 
         </div>
         <div id="myknowledge" class="rightdiv">
-            <div class="righttopbar">
-                 <ul class="navigationleft">
-                     <li><a href="<%=this.BasePath%>myWrongCollection.aspx">我的错题</a></li>
-                     <li><a href="<%=this.BasePath%>myFavorite.aspx">我的收藏</a></li>
-                     <li><a href="<%=this.BasePath%>myNote.aspx">我的笔记</a></li>
-                     <li><a href="<%=this.BasePath%>myExercise.aspx">课后习题</a></li>
-		         </ul>
-            </div>
+            <div id="knowledgeButton"></div>
             <div id="knowledgeVideo"></div>
             <div id="knowledgeSR"></div>
            
